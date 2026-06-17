@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface Props {
   count?: number;
@@ -6,6 +6,9 @@ interface Props {
 }
 
 export function MagicParticles({ count = 30, className = "" }: Props) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const particles = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
@@ -18,6 +21,8 @@ export function MagicParticles({ count = 30, className = "" }: Props) {
       })),
     [count],
   );
+
+  if (!mounted) return null;
 
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
