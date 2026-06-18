@@ -710,17 +710,61 @@ function Register() {
 
 function Footer() {
   return (
-    <footer className="relative border-t border-gold/20 py-12">
-      <div className="mx-auto max-w-6xl px-6 text-center">
-        <div className="flex items-center justify-center gap-3">
-          <BrandMark className="h-10 w-10" />
+    <footer className="relative overflow-hidden border-t border-gold/30 bg-gradient-to-b from-midnight-deep via-midnight-deep to-black">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(2px 2px at 15% 30%, oklch(0.9 0.12 85 / 0.7), transparent), radial-gradient(1.5px 1.5px at 70% 60%, oklch(0.9 0.12 85 / 0.5), transparent), radial-gradient(1px 1px at 40% 80%, oklch(0.9 0.12 85 / 0.6), transparent), radial-gradient(1.5px 1.5px at 85% 20%, oklch(0.9 0.12 85 / 0.5), transparent)",
+          backgroundSize: "500px 500px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-px left-1/2 h-px w-3/4 -translate-x-1/2"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, oklch(0.85 0.15 85 / 0.8), transparent)",
+        }}
+      />
+      <MagicParticles count={20} />
+
+      <div className="relative mx-auto max-w-6xl px-6 py-16">
+        <div className="flex flex-col items-center text-center">
+          <BrandMark className="h-16 w-16 drop-shadow-[0_0_24px_oklch(0.85_0.15_85/0.6)]" />
+          <h2 className="mt-5 font-display text-3xl font-bold tracking-wide text-gold-gradient sm:text-4xl">
+            Hogwartz Hacks
+          </h2>
+          <p className="mt-2 font-script text-3xl text-gold-bright sm:text-4xl">
+            Mischief Managed.
+          </p>
+          <p className="mx-auto mt-4 max-w-xl font-serif italic text-foreground/70">
+            "It is our choices, far more than our abilities, that show what we truly are."
+          </p>
+
+          <div className="my-8 flex items-center gap-4 text-gold/60">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold/60 sm:w-28" />
+            <span className="font-script text-3xl">✦</span>
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold/60 sm:w-28" />
+          </div>
+
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-serif text-sm uppercase tracking-[0.25em] text-foreground/75">
+            {NAV.map(([label, href]) => (
+              <a key={href} href={href} className="transition hover:text-gold">
+                {label}
+              </a>
+            ))}
+            <a href="#register" className="transition hover:text-gold">Register</a>
+          </nav>
+
+          <p className="mt-10 font-serif text-xs uppercase tracking-[0.35em] text-foreground/50">
+            © {new Date().getFullYear()} · Hogwartz Virtual Summer School
+          </p>
+          <p className="mt-1 font-serif text-[11px] italic text-foreground/40">
+            A fan-made, original-art event. Conjured with wonder.
+          </p>
         </div>
-        <p className="mt-3 font-serif italic text-muted-foreground">
-          Guiding minds. Inspiring futures.
-        </p>
-        <p className="mt-6 font-serif text-xs uppercase tracking-widest text-muted-foreground">
-          © Hogwartz Virtual Summer School · A fan-made, original-art event
-        </p>
       </div>
     </footer>
   );
@@ -733,7 +777,6 @@ function Index() {
       <Hero />
       <About />
       <Journey />
-      <Houses />
       <Schedule />
       <Judging />
       <HouseCup />
@@ -742,6 +785,7 @@ function Index() {
       <FAQ />
       <Register />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }
