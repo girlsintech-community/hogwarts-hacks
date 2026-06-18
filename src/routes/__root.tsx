@@ -77,20 +77,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hogwartz Hacks — Where Magic Meets Innovation" },
+      { title: "Hogwartz Hacks" },
       {
         name: "description",
         content:
           "A 4-hour virtual ideathon where students from different houses unite, brainstorm groundbreaking ideas, and compete for House Cup glory. Sept 27, 2026.",
       },
       { name: "author", content: "Hogwartz Virtual Summer School" },
-      { property: "og:title", content: "Hogwartz Hacks — Where Magic Meets Innovation" },
+      { property: "og:title", content: "Hogwartz Hacks" },
       {
         property: "og:description",
         content: "Virtual ideathon. 4 hours. Teams of 2. House Cup glory awaits.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Hogwartz Hacks" },
+      { name: "description", content: "Hogwarts Hacks is a virtual ideathon website for students to innovate and compete." },
+      { property: "og:description", content: "Hogwarts Hacks is a virtual ideathon website for students to innovate and compete." },
+      { name: "twitter:description", content: "Hogwarts Hacks is a virtual ideathon website for students to innovate and compete." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f0d8e71-f648-4a23-98a8-0fa5c282039d/id-preview-e40cde0b--e10cd9cc-70d7-4566-bd2e-1291ee82dcce.lovable.app-1781713049990.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f0d8e71-f648-4a23-98a8-0fa5c282039d/id-preview-e40cde0b--e10cd9cc-70d7-4566-bd2e-1291ee82dcce.lovable.app-1781713049990.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
