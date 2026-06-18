@@ -24,13 +24,10 @@ import { MagicParticles } from "@/components/MagicParticles";
 import { Countdown } from "@/components/Countdown";
 import { BookPage } from "@/components/BookPage";
 import { BrandMark } from "@/components/BrandMark";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
 import castleHero from "@/assets/castle-hero.jpg";
 import houseCup from "@/assets/house-cup.png.asset.json";
-import houseNova from "@/assets/house-nova.png.asset.json";
-import houseNyx from "@/assets/house-nyx.png.asset.json";
-import houseLuno from "@/assets/house-luno.png.asset.json";
-import houseAstra from "@/assets/house-astra.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
