@@ -345,56 +345,6 @@ function Journey() {
   );
 }
 
-const HOUSES = [
-  { name: "Nova", title: "The Visionary", motto: "Code the future before it arrives.", image: houseNova.url, tone: "from-blue-500/20 to-blue-900/30" },
-  { name: "Nyx", title: "The Enigma", motto: "Hack the paradox. Rule the code.", image: houseNyx.url, tone: "from-amber-700/20 to-amber-950/30" },
-  { name: "Luno", title: "The Alchemist", motto: "Turn code into gold.", image: houseLuno.url, tone: "from-emerald-500/20 to-emerald-900/30" },
-  { name: "Astra", title: "The Dreamer", motto: "Code clarity from chaos.", image: houseAstra.url, tone: "from-pink-500/20 to-fuchsia-900/30" },
-];
-
-function Houses() {
-  return (
-    <BookPage id="houses" chapter="Chapter III — The Four Houses" pageNumber="iii">
-      <PageTitle>Choose Your House</PageTitle>
-      <FlourishDivider />
-      <p className="mx-auto mb-10 max-w-2xl text-center font-serif text-lg italic text-ink/75">
-        Four houses. Four philosophies. One Cup.
-      </p>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {HOUSES.map((h, i) => (
-          <motion.div
-            key={h.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            whileHover={{ y: -6 }}
-            className="group relative overflow-hidden rounded-xl border border-ink/30 bg-ink/5"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <img
-                src={h.image}
-                alt={`House of ${h.name} — ${h.title}`}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <div className={`absolute inset-0 bg-gradient-to-t ${h.tone} mix-blend-multiply opacity-60`} />
-            </div>
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <p className="font-display text-xs uppercase tracking-[0.4em] text-white/80">
-                House of
-              </p>
-              <h3 className="font-display text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
-                {h.name}
-              </h3>
-              <p className="mt-1 font-serif text-base text-white/90">{h.title}</p>
-              <p className="mt-2 font-serif text-sm italic text-white/70">"{h.motto}"</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </BookPage>
-  );
-}
 
 const SCHEDULE = [
   { title: "Opening Ceremony", time: "15 Minutes" },
