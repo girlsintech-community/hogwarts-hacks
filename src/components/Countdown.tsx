@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const TARGET = new Date("2026-09-27T09:00:00").getTime();
+const TARGET = new Date("2026-06-27T10:00:00").getTime();
 
 function diff() {
   const t = TARGET - Date.now();
@@ -14,8 +14,9 @@ function diff() {
 }
 
 export function Countdown() {
-  const [t, setT] = useState(diff);
+  const [t, setT] = useState({ d: 0, h: 0, m: 0, s: 0 });
   useEffect(() => {
+    setT(diff());
     const id = setInterval(() => setT(diff()), 1000);
     return () => clearInterval(id);
   }, []);
