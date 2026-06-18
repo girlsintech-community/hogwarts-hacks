@@ -190,16 +190,16 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-3 font-serif text-sm text-foreground/80 sm:gap-4 sm:text-base"
         >
           {[
-            ["📅", "Sat, 27 Sept"],
-            ["🌐", "Virtual"],
-            ["⏳", "4 Hours"],
-            ["👥", "Teams of 2"],
-          ].map(([icon, label]) => (
+            "Sat, 27 June",
+            "Virtual",
+            "4 Hours",
+            "Teams of 2",
+          ].map((label) => (
             <span
               key={label}
               className="magic-border rounded-full bg-midnight/40 px-4 py-2 backdrop-blur-sm"
             >
-              {icon} {label}
+              {label}
             </span>
           ))}
         </motion.div>
