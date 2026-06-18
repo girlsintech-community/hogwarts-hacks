@@ -493,11 +493,11 @@ function HouseCup() {
 }
 
 const AWARDS = [
-  { icon: Trophy, title: "Best Overall Idea" },
-  { icon: Sparkles, title: "Most Innovative Solution" },
-  { icon: Heart, title: "Best Social Impact Idea" },
-  { icon: Presentation, title: "Best Presentation" },
-  { icon: Star, title: "People's Choice Award" },
+  "Best Overall Idea",
+  "Most Innovative Solution",
+  "Best Social Impact Idea",
+  "Best Presentation",
+  "People's Choice Award",
 ];
 
 function Awards() {
@@ -506,26 +506,23 @@ function Awards() {
       <PageTitle>Awards</PageTitle>
       <FlourishDivider />
       <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {AWARDS.map((a, i) => {
-          const Icon = a.icon;
-          return (
-            <motion.div
-              key={a.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              whileHover={{ y: -4, rotate: -1 }}
-              className="flex flex-col items-center rounded-xl border border-ink/30 bg-ink/5 p-6 text-center"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-gold">
-                <Icon className="h-7 w-7" />
-              </div>
-              <h3 className="mt-4 font-display text-lg font-semibold text-ink">{a.title}</h3>
-              <Award className="mt-2 h-4 w-4 text-ink/40" />
-            </motion.div>
-          );
-        })}
+        {AWARDS.map((title, i) => (
+          <motion.div
+            key={title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.07 }}
+            whileHover={{ y: -4 }}
+            className="relative flex flex-col items-center rounded-xl border border-ink/30 bg-gradient-to-b from-amber-200/20 to-transparent p-7 text-center"
+          >
+            <p className="font-script text-5xl leading-none text-ink/70">{i + 1}</p>
+            <span className="my-3 h-px w-12 bg-ink/30" />
+            <h3 className="font-display text-lg font-semibold uppercase tracking-wide text-ink">
+              {title}
+            </h3>
+          </motion.div>
+        ))}
       </div>
     </BookPage>
   );
