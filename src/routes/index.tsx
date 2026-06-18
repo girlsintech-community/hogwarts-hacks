@@ -9,13 +9,9 @@ import {
   MessageSquare,
   Presentation,
   Trophy,
-  Heart,
   Clock,
-  Award,
-  Star,
   ChevronDown,
   Wand2,
-  BookOpen,
   Menu,
   X,
 } from "lucide-react";
@@ -24,13 +20,10 @@ import { MagicParticles } from "@/components/MagicParticles";
 import { Countdown } from "@/components/Countdown";
 import { BookPage } from "@/components/BookPage";
 import { BrandMark } from "@/components/BrandMark";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
 import castleHero from "@/assets/castle-hero.jpg";
 import houseCup from "@/assets/house-cup.png.asset.json";
-import houseNova from "@/assets/house-nova.png.asset.json";
-import houseNyx from "@/assets/house-nyx.png.asset.json";
-import houseLuno from "@/assets/house-luno.png.asset.json";
-import houseAstra from "@/assets/house-astra.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,7 +49,6 @@ export const Route = createFileRoute("/")({
 const NAV = [
   ["About", "#about"],
   ["Journey", "#journey"],
-  ["Houses", "#houses"],
   ["Schedule", "#schedule"],
   ["House Cup", "#cup"],
   ["FAQ", "#faq"],
@@ -194,16 +186,16 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-3 font-serif text-sm text-foreground/80 sm:gap-4 sm:text-base"
         >
           {[
-            ["📅", "Sat, 27 Sept"],
-            ["🌐", "Virtual"],
-            ["⏳", "4 Hours"],
-            ["👥", "Teams of 2"],
-          ].map(([icon, label]) => (
+            "Sat, 27 June",
+            "Virtual",
+            "4 Hours",
+            "Teams of 2",
+          ].map((label) => (
             <span
               key={label}
               className="magic-border rounded-full bg-midnight/40 px-4 py-2 backdrop-blur-sm"
             >
-              {icon} {label}
+              {label}
             </span>
           ))}
         </motion.div>
@@ -215,9 +207,7 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <Button asChild size="lg" className="h-12 animate-glow px-8 font-serif text-base tracking-wide">
-            <a href="#register">
-              <Sparkles className="h-4 w-4" /> Register Now
-            </a>
+            <a href="#register">Register Now</a>
           </Button>
           <Button
             asChild
@@ -225,9 +215,7 @@ function Hero() {
             size="lg"
             className="h-12 border-gold/50 bg-transparent px-8 font-serif text-base tracking-wide text-gold hover:bg-gold/10 hover:text-gold-bright"
           >
-            <a href="#about">
-              <BookOpen className="h-4 w-4" /> Open the Book
-            </a>
+            <a href="#about">Open the Book</a>
           </Button>
         </motion.div>
 
@@ -353,56 +341,6 @@ function Journey() {
   );
 }
 
-const HOUSES = [
-  { name: "Nova", title: "The Visionary", motto: "Code the future before it arrives.", image: houseNova.url, tone: "from-blue-500/20 to-blue-900/30" },
-  { name: "Nyx", title: "The Enigma", motto: "Hack the paradox. Rule the code.", image: houseNyx.url, tone: "from-amber-700/20 to-amber-950/30" },
-  { name: "Luno", title: "The Alchemist", motto: "Turn code into gold.", image: houseLuno.url, tone: "from-emerald-500/20 to-emerald-900/30" },
-  { name: "Astra", title: "The Dreamer", motto: "Code clarity from chaos.", image: houseAstra.url, tone: "from-pink-500/20 to-fuchsia-900/30" },
-];
-
-function Houses() {
-  return (
-    <BookPage id="houses" chapter="Chapter III — The Four Houses" pageNumber="iii">
-      <PageTitle>Choose Your House</PageTitle>
-      <FlourishDivider />
-      <p className="mx-auto mb-10 max-w-2xl text-center font-serif text-lg italic text-ink/75">
-        Four houses. Four philosophies. One Cup.
-      </p>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {HOUSES.map((h, i) => (
-          <motion.div
-            key={h.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            whileHover={{ y: -6 }}
-            className="group relative overflow-hidden rounded-xl border border-ink/30 bg-ink/5"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <img
-                src={h.image}
-                alt={`House of ${h.name} — ${h.title}`}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <div className={`absolute inset-0 bg-gradient-to-t ${h.tone} mix-blend-multiply opacity-60`} />
-            </div>
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <p className="font-display text-xs uppercase tracking-[0.4em] text-white/80">
-                House of
-              </p>
-              <h3 className="font-display text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
-                {h.name}
-              </h3>
-              <p className="mt-1 font-serif text-base text-white/90">{h.title}</p>
-              <p className="mt-2 font-serif text-sm italic text-white/70">"{h.motto}"</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </BookPage>
-  );
-}
 
 const SCHEDULE = [
   { title: "Opening Ceremony", time: "15 Minutes" },
@@ -551,11 +489,11 @@ function HouseCup() {
 }
 
 const AWARDS = [
-  { icon: Trophy, title: "Best Overall Idea" },
-  { icon: Sparkles, title: "Most Innovative Solution" },
-  { icon: Heart, title: "Best Social Impact Idea" },
-  { icon: Presentation, title: "Best Presentation" },
-  { icon: Star, title: "People's Choice Award" },
+  "Best Overall Idea",
+  "Most Innovative Solution",
+  "Best Social Impact Idea",
+  "Best Presentation",
+  "People's Choice Award",
 ];
 
 function Awards() {
@@ -564,26 +502,23 @@ function Awards() {
       <PageTitle>Awards</PageTitle>
       <FlourishDivider />
       <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {AWARDS.map((a, i) => {
-          const Icon = a.icon;
-          return (
-            <motion.div
-              key={a.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              whileHover={{ y: -4, rotate: -1 }}
-              className="flex flex-col items-center rounded-xl border border-ink/30 bg-ink/5 p-6 text-center"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-gold">
-                <Icon className="h-7 w-7" />
-              </div>
-              <h3 className="mt-4 font-display text-lg font-semibold text-ink">{a.title}</h3>
-              <Award className="mt-2 h-4 w-4 text-ink/40" />
-            </motion.div>
-          );
-        })}
+        {AWARDS.map((title, i) => (
+          <motion.div
+            key={title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.07 }}
+            whileHover={{ y: -4 }}
+            className="relative flex flex-col items-center rounded-xl border border-ink/30 bg-gradient-to-b from-amber-200/20 to-transparent p-7 text-center"
+          >
+            <p className="font-script text-5xl leading-none text-ink/70">{i + 1}</p>
+            <span className="my-3 h-px w-12 bg-ink/30" />
+            <h3 className="font-display text-lg font-semibold uppercase tracking-wide text-ink">
+              {title}
+            </h3>
+          </motion.div>
+        ))}
       </div>
     </BookPage>
   );
@@ -771,17 +706,61 @@ function Register() {
 
 function Footer() {
   return (
-    <footer className="relative border-t border-gold/20 py-12">
-      <div className="mx-auto max-w-6xl px-6 text-center">
-        <div className="flex items-center justify-center gap-3">
-          <BrandMark className="h-10 w-10" />
+    <footer className="relative overflow-hidden border-t border-gold/30 bg-gradient-to-b from-midnight-deep via-midnight-deep to-black">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(2px 2px at 15% 30%, oklch(0.9 0.12 85 / 0.7), transparent), radial-gradient(1.5px 1.5px at 70% 60%, oklch(0.9 0.12 85 / 0.5), transparent), radial-gradient(1px 1px at 40% 80%, oklch(0.9 0.12 85 / 0.6), transparent), radial-gradient(1.5px 1.5px at 85% 20%, oklch(0.9 0.12 85 / 0.5), transparent)",
+          backgroundSize: "500px 500px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-px left-1/2 h-px w-3/4 -translate-x-1/2"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, oklch(0.85 0.15 85 / 0.8), transparent)",
+        }}
+      />
+      <MagicParticles count={20} />
+
+      <div className="relative mx-auto max-w-6xl px-6 py-16">
+        <div className="flex flex-col items-center text-center">
+          <BrandMark className="h-16 w-16 drop-shadow-[0_0_24px_oklch(0.85_0.15_85/0.6)]" />
+          <h2 className="mt-5 font-display text-3xl font-bold tracking-wide text-gold-gradient sm:text-4xl">
+            Hogwartz Hacks
+          </h2>
+          <p className="mt-2 font-script text-3xl text-gold-bright sm:text-4xl">
+            Mischief Managed.
+          </p>
+          <p className="mx-auto mt-4 max-w-xl font-serif italic text-foreground/70">
+            "It is our choices, far more than our abilities, that show what we truly are."
+          </p>
+
+          <div className="my-8 flex items-center gap-4 text-gold/60">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold/60 sm:w-28" />
+            <span className="font-script text-3xl">✦</span>
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-gold/60 sm:w-28" />
+          </div>
+
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-serif text-sm uppercase tracking-[0.25em] text-foreground/75">
+            {NAV.map(([label, href]) => (
+              <a key={href} href={href} className="transition hover:text-gold">
+                {label}
+              </a>
+            ))}
+            <a href="#register" className="transition hover:text-gold">Register</a>
+          </nav>
+
+          <p className="mt-10 font-serif text-xs uppercase tracking-[0.35em] text-foreground/50">
+            © {new Date().getFullYear()} · Hogwartz Virtual Summer School
+          </p>
+          <p className="mt-1 font-serif text-[11px] italic text-foreground/40">
+            A fan-made, original-art event. Conjured with wonder.
+          </p>
         </div>
-        <p className="mt-3 font-serif italic text-muted-foreground">
-          Guiding minds. Inspiring futures.
-        </p>
-        <p className="mt-6 font-serif text-xs uppercase tracking-widest text-muted-foreground">
-          © Hogwartz Virtual Summer School · A fan-made, original-art event
-        </p>
       </div>
     </footer>
   );
@@ -794,7 +773,6 @@ function Index() {
       <Hero />
       <About />
       <Journey />
-      <Houses />
       <Schedule />
       <Judging />
       <HouseCup />
@@ -803,6 +781,7 @@ function Index() {
       <FAQ />
       <Register />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }

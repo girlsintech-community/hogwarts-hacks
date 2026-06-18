@@ -77,34 +77,62 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hogwartz Hacks" },
+      { title: "Hogwartz Hacks — Virtual Ideathon | 27 June 2026" },
       {
         name: "description",
         content:
-          "A 4-hour virtual ideathon where students from different houses unite, brainstorm groundbreaking ideas, and compete for House Cup glory. Sept 27, 2026.",
+          "Hogwartz Hacks is a magical 4-hour virtual ideathon on 27 June 2026. Teams of two from four houses — Nova, Nyx, Luno, Astra — compete for House Cup glory.",
       },
+      { name: "keywords", content: "Hogwartz Hacks, ideathon, virtual hackathon, students, Hogwartz Virtual Summer School, House Cup, innovation, Nova, Nyx, Luno, Astra" },
       { name: "author", content: "Hogwartz Virtual Summer School" },
-      { property: "og:title", content: "Hogwartz Hacks" },
+      { name: "theme-color", content: "#0b0d1f" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Hogwartz Hacks" },
+      { property: "og:title", content: "Hogwartz Hacks — Virtual Ideathon" },
       {
         property: "og:description",
-        content: "Virtual ideathon. 4 hours. Teams of 2. House Cup glory awaits.",
+        content:
+          "A magical 4-hour virtual ideathon. Teams of two. Four houses. One House Cup. 27 June 2026.",
       },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Hogwartz Hacks" },
-      { name: "description", content: "Hogwarts Hacks is a virtual ideathon website for students to innovate and compete." },
-      { property: "og:description", content: "Hogwarts Hacks is a virtual ideathon website for students to innovate and compete." },
-      { name: "twitter:description", content: "Hogwarts Hacks is a virtual ideathon website for students to innovate and compete." },
+      { property: "og:url", content: "/" },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f0d8e71-f648-4a23-98a8-0fa5c282039d/id-preview-e40cde0b--e10cd9cc-70d7-4566-bd2e-1291ee82dcce.lovable.app-1781713049990.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Hogwartz Hacks — Virtual Ideathon" },
+      { name: "twitter:description", content: "A magical 4-hour virtual ideathon. Teams of two. Four houses. One House Cup." },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f0d8e71-f648-4a23-98a8-0fa5c282039d/id-preview-e40cde0b--e10cd9cc-70d7-4566-bd2e-1291ee82dcce.lovable.app-1781713049990.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Tangerine:wght@400;700&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Tangerine:wght@700&family=Inter:wght@400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: "Hogwartz Hacks",
+          description:
+            "A magical 4-hour virtual ideathon where students from four houses compete for House Cup glory.",
+          startDate: "2026-06-27T10:00:00+05:30",
+          eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+          location: {
+            "@type": "VirtualLocation",
+            url: "https://hogwarts-hacks-hub.lovable.app/",
+          },
+          organizer: {
+            "@type": "Organization",
+            name: "Hogwartz Virtual Summer School",
+          },
+        }),
       },
     ],
   }),
