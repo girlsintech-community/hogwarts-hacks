@@ -211,9 +211,7 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <Button asChild size="lg" className="h-12 animate-glow px-8 font-serif text-base tracking-wide">
-            <a href="#register">
-              <Sparkles className="h-4 w-4" /> Register Now
-            </a>
+            <a href="#register">Register Now</a>
           </Button>
           <Button
             asChild
@@ -221,9 +219,7 @@ function Hero() {
             size="lg"
             className="h-12 border-gold/50 bg-transparent px-8 font-serif text-base tracking-wide text-gold hover:bg-gold/10 hover:text-gold-bright"
           >
-            <a href="#about">
-              <BookOpen className="h-4 w-4" /> Open the Book
-            </a>
+            <a href="#about">Open the Book</a>
           </Button>
         </motion.div>
 
