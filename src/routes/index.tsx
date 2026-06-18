@@ -9,13 +9,9 @@ import {
   MessageSquare,
   Presentation,
   Trophy,
-  Heart,
   Clock,
-  Award,
-  Star,
   ChevronDown,
   Wand2,
-  BookOpen,
   Menu,
   X,
 } from "lucide-react";
