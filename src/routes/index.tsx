@@ -53,7 +53,6 @@ export const Route = createFileRoute("/")({
 const NAV = [
   ["About", "#about"],
   ["Journey", "#journey"],
-  ["Houses", "#houses"],
   ["Schedule", "#schedule"],
   ["House Cup", "#cup"],
   ["FAQ", "#faq"],
